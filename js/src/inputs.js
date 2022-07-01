@@ -1,6 +1,11 @@
 //selects
 $(document).ready(function () {
     $('.select').select2({width: '100%'})
+    $('.select').on('select2:close', function () {
+        if (!!$(this).select2('data')[0].id) {
+            $(this).next().addClass('valid')
+        }
+    })
 });
 
 //inputmask scripts

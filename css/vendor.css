@@ -1278,8 +1278,9 @@ template {
   border-radius: 4px;
   font-size: 15px;
   line-height: 44px; }
-  .select2-container--default .select2-selection--single .select2-selection__rendered[title] {
-    border: 1px solid #ACCDA7; }
+
+.select2-container--default.valid .select2-selection--single .select2-selection__rendered {
+  border: 1px solid #ACCDA7; }
 
 .select2-container .select2-selection--single {
   font-family: 'Circe', sans-serif;
@@ -1313,10 +1314,13 @@ template {
   transition: all .2s; }
 
 .select2-container--default .select2-results__option--highlighted[aria-selected] {
-  background: #ebf2e8; }
+  background: #ebf2e8;
+  color: #000000; }
 
-.select2-container--default .select2-results__option[aria-selected=true] {
-  background: #ebf2e8; }
+.select2-container--default .select2-results__option[aria-selected=true],
+.select2-container--default .select2-results__option--selected {
+  background: #ebf2e8;
+  color: #000000; }
 
 .select2-search--dropdown {
   display: none; }
