@@ -65,7 +65,7 @@
   }
 
   &:after {
-    content: url("/assets/icons/tick--success.svg");
+    content: url("../assets/icons/tick--success.svg");
     position: absolute;
     height: 24px;
     top: 50%;
@@ -82,7 +82,7 @@
     }
 
     &:after {
-      content: url("/assets/icons/error-cross.svg");
+      content: url("../assets/icons/error-cross.svg");
       opacity: 1;
     }
   }
