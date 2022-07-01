@@ -1,0 +1,128 @@
+.footer {
+  padding-top: 30px;
+  background: #0B2802;
+  color: white;
+
+  &__grid {
+    display: grid;
+    grid-gap: 25px 30px;
+    grid-template-columns: 40.2% 22.9% 1fr;
+  }
+
+  &__label {
+    margin-bottom: 4px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    opacity: 0.5;
+  }
+
+  &__logo {
+    @media(max-width: 1199px) {
+      text-align: center;
+      img {
+        width: 129px;
+      }
+    }
+  }
+
+  a {
+    color: white;
+
+    &:hover {
+      color: #FFCF52;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    a {
+      font-weight: 350;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    .address, .phone {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+    }
+
+    .phone {
+      font-weight: 700;
+      align-items: center;
+      color: white;
+    }
+
+    .button {
+      margin-top: 18px;
+      color: white;
+      width: 166px;
+    }
+  }
+
+  &__copyrights {
+    padding: 10px 0;
+    grid-column: span 3;
+    border-top: 1px solid rgba(255, 255, 255, .2);
+
+    font-weight: 350;
+    font-size: 12px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, .6);
+  }
+
+  @media(max-width: 1199px) {
+    &__grid {
+      grid-template-columns: 100%;
+      grid-gap: 40px;
+    }
+    &__menu {
+      display: none;
+    }
+    &__label {
+      font-size: 14px;
+      line-height: 20px;
+      margin-bottom: 0;
+    }
+    &__contacts {
+      align-items: center;
+      gap: 8px;
+
+      .address {
+        width: 235px;
+        font-weight: 350;
+        font-size: 14px;
+        line-height: 20px;
+        gap: 10px;
+      }
+
+      .phone {
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      .button {
+        width: 228px;
+        margin-top: 10px;
+      }
+    }
+    &__copyrights {
+      grid-column: span 1;
+      margin-top: 19px;
+      text-align: center;
+      font-size: 10px;
+      line-height: 16px;
+    }
+  }
+}

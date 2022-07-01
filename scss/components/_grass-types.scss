@@ -1,0 +1,84 @@
+.grass-types {
+  h2 {
+    margin-bottom: 40px;
+    @media(max-width: 1199px){
+      margin-bottom: 18px;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(3, calc(100% / 3 - 7px));
+    grid-column-gap: 10px;
+    margin-bottom: 80px;
+
+    @media(max-width: 1199px){
+      grid-template-columns: 100%;
+      grid-gap: 4px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__item {
+    background: #FFFFFF;
+    transition: all .2s;
+
+    .cover {
+      height: 217px;
+      width: 100%;
+
+      .owl-dots {
+        margin-top: -25px;
+        justify-content: center;
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    .description {
+      padding: 20px 30px 40px;
+      text-align: center;
+
+      h4 {
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 20px;
+      }
+
+      .price {
+        font-family: 'Manrope', sans-serif;
+        font-weight: 800;
+        font-size: 26px;
+        line-height: 36px;
+        color: #06661B;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 0 24px rgba(5, 43, 50, 0.2);
+    }
+
+    @media(max-width: 1199px){
+      max-width: 328px;
+      margin: 0 auto;
+      .cover{
+        height: 190px;
+      }
+      .description{
+        padding: 10px 20px 20px;
+        .price{
+
+          font-size: 18px;
+          line-height: 25px;
+        }
+        .button{
+          margin-top: -12px;
+        }
+      }
+    }
+  }
+}

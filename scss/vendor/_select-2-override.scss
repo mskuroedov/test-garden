@@ -1,0 +1,116 @@
+.select2 > * {
+  outline: none !important;
+}
+
+.select2-container--default.select2-container--disabled .select2-selection--single {
+  background: rgba(241, 246, 239, 0.6);
+}
+
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+  color: #000000;
+  opacity: 0.5;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  padding: 0 0 0 20px;
+  color: #000000;
+  transition: all .2s;
+  border: 1px solid rgba(241, 246, 239, 0.6);
+  background: rgba(241, 246, 239, 0.6);
+  border-radius: 4px;
+  font-size: 15px;
+  line-height: 44px;
+
+  &[title] {
+    border: 1px solid #ACCDA7;
+  }
+}
+
+.select2-container .select2-selection--single {
+  font-family: 'Circe', sans-serif;
+  font-weight: 350;
+  font-size: 16px;
+  line-height: 44px;
+  height: 44px;
+  outline: none;
+  border: 0;
+  transition: all .1s;
+
+  &[aria-expanded='true'] {
+    border-radius: 0;
+  }
+
+  &[aria-expanded='true'] .select2-selection__rendered {
+    border: 1px solid #FFCF52;
+  }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 50px;
+
+  b {
+    display: none;
+  }
+}
+
+.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow:after {
+  transform: rotateX(180deg);
+  transform-origin: center;
+}
+
+.select2-results__option {
+  padding: 0 0 0 20px;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 40px;
+  color: rgba(0, 0, 0, 0.8);
+  transition: all .2s;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background: darken(#F1F6EF, 2);
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+  background: darken(#F1F6EF, 2);
+}
+
+.select2-search--dropdown {
+  display: none;
+}
+
+.select2-dropdown {
+  background: #F1F6EF;
+  border: 1px solid #FFCF52;
+  border-top: 1px solid #FFCF52 !important;
+  border-radius: 4px !important;
+  top: 4px;
+  overflow: hidden;
+}
+
+.select2-container--default .select2-results {
+  max-height: 240px;
+  overflow-y: scroll;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+  &::-webkit-scrollbar-track {
+
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(95, 95, 95, 0.6);
+    width: 3px;
+  }
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+  max-height: none;
+}

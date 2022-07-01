@@ -1,0 +1,155 @@
+.examples {
+  h2 {
+    margin-bottom: 21px;
+  }
+}
+
+.examples-slider {
+  .owl-nav {
+    margin-top: 60px;
+    @media(max-width: 1199px) {
+      margin-top: 20px;
+      justify-content: center;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 40.1% auto;
+    grid-gap: 50px;
+    align-items: flex-start;
+
+    h4 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    .preview {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+
+      .before,
+      .after {
+        position: relative;
+        padding: 4px;
+      }
+
+      .preview-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 83px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        font-family: 'Manrope', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 27px;
+        color: white;
+        text-align: center;
+
+        &:after {
+          content: '';
+          position: absolute;
+          right: .5px;
+          top: 0;
+          width: 0;
+          height: 0;
+          border-left: 0 solid transparent;
+          border-right: 15px solid transparent;
+          border-top: 36px solid;
+          transform: translateX(99.6%);
+        }
+      }
+
+      .before-label {
+        background: #CCC9C1;
+
+        &:after {
+          border-top-color: #CCC9C1;
+        }
+      }
+
+      .after-label {
+        background: #06661B;
+
+        &:after {
+          border-top-color: #06661B;
+        }
+      }
+    }
+
+    @media(max-width: 1199px) {
+      grid-template-columns: 100%;
+      grid-gap: 20px;
+
+      .preview {
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+
+      }
+    }
+  }
+}
+
+.stat {
+  display: flex;
+  align-items: flex-start;
+  gap: 29px;
+  color: white;
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    .icon {
+      width: 30px;
+      height: 30px;
+
+      img {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+
+
+    .name {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 4px;
+    }
+
+    p {
+      white-space: nowrap;
+      margin-bottom: 0;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    gap: 38px;
+    &__item {
+      flex-direction: column;
+      gap: 6px;
+      .icon{
+        width: 20px;
+        height: 20px;
+      }
+      .name{
+        font-size: 16px;
+        line-height: 20px;
+      }
+    }
+  }
+}

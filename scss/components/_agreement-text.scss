@@ -1,0 +1,12 @@
+.agreement-text {
+  font-weight: 350;
+  font-size: 14px;
+  line-height: 20px;
+
+  a {
+    color: #FFCF52;
+    &:hover{
+      color: #e3aa14;
+    }
+  }
+}

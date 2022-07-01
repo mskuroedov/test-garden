@@ -1,0 +1,58 @@
+.calculate-grass {
+  padding: 40px;
+  background: #FFFFFF;
+  border-radius: 60px 0;
+
+  display: grid;
+  grid-template-columns: 322px auto;
+  grid-column-gap: 50px;
+
+  &__title {
+    color: #06661B;
+    margin-bottom: 10px;
+    @media(min-width: 1200px) {
+      margin-bottom: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 35px;
+    @media(max-width: 1199px) {
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px 20px;
+    align-items: center;
+
+    input {
+      height: 44px;
+    }
+
+    .button {
+      margin-top: 10px;
+      @media (min-width: 1200px) {
+        grid-column: span 2;
+      }
+    }
+
+    @media(max-width: 1199px) {
+      grid-template-columns: 100%;
+    }
+  }
+
+  @media(max-width: 1199px) {
+    border-radius: 20px 0;
+    padding: 20px 20px 40px;
+    grid-template-columns: 100%;
+    grid-gap: 20px;
+  }
+}

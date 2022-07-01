@@ -1,0 +1,144 @@
+.feedback {
+  padding-bottom: 67px;
+
+  h2 {
+    margin-bottom: 40px;
+  }
+
+  &__slider {
+    margin-bottom: 80px;
+
+    &__item {
+      position: relative;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-end;
+      height: 323px;
+
+      .feedback-image {
+        position: absolute;
+        z-index: 2;
+        inset: 0;
+
+        img {
+          object-fit: fill;
+        }
+      }
+
+      .feedback-content {
+        position: relative;
+        z-index: 3;
+        width: 266px;
+        padding: 30px 20px 30px 22px;
+        display: flex;
+        flex-direction: column;
+        background: rgba(11, 40, 2, .6);
+        color: white;
+
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 30px;
+
+          img {
+            width: 60px;
+            height: 60px;
+          }
+
+          .name {
+            font-family: 'Manrope', sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 24px;
+            margin-bottom: 4px;
+          }
+
+          p {
+            margin-bottom: 0;
+          }
+        }
+
+        .text-muted {
+          margin-top: auto;
+          margin-bottom: 0;
+          font-size: 13px;
+          line-height: 20px;
+        }
+      }
+    }
+
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      .button {
+        width: 166px;
+      }
+
+      .owl-nav {
+        margin-top: 0;
+      }
+    }
+  }
+
+  @media(max-width: 1199px) {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    h2 {
+      margin-bottom: 20px;
+    }
+    &__slider {
+      max-width: 328px;
+      margin: 0 auto 40px;
+
+      &__item {
+        height: 200px;
+
+        .feedback-content {
+          padding: 10px;
+          width: 57%;
+
+          .user {
+            gap: 10px;
+            margin-bottom: 10px;
+
+            img {
+              width: 40px;
+              height: 40px;
+            }
+
+            .name {
+              font-size: 16px;
+              line-height: 20px;
+            }
+          }
+          p{
+            margin-bottom: 0;
+          }
+          .text-muted {
+            font-size: 10px;
+            line-height: 16px;
+          }
+        }
+      }
+
+      &__bottom {
+        flex-wrap: wrap;
+
+        .owl-nav {
+          order: 1;
+        }
+
+        .button {
+          margin-top: 20px;
+          order: 2;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

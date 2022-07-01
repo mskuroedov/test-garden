@@ -1,0 +1,22 @@
+{
+  "name": "garden",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gulp dev"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {
+    "bootstrap": "4.6",
+    "inputmask": "^5.0.7",
+    "jquery": "^3.6.0",
+    "owl.carousel": "^2.3.4",
+    "select2": "^4.1.0-rc.0"
+  }
+}

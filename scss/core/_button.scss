@@ -1,0 +1,42 @@
+.button {
+  font-family: 'Manrope', sans-serif;
+  height: 50px;
+  text-align: center;
+  color: #000;
+  background: #FFCF52;
+  border: 1px solid #FFCF52;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 19px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 24px rgba(1, 36, 39, 0.2);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    background: #FFF7D2;
+  }
+
+  &--outline {
+    background: transparent;
+
+    &:hover,
+    &:focus {
+      box-shadow: none;
+      background: #FFCF52;
+    }
+
+    &:disabled {
+      background: #F8F8F8;
+    }
+  }
+
+  &--block {
+    width: 100%;
+  }
+}

@@ -1,0 +1,51 @@
+h2, h3, h4 {
+  font-family: 'Manrope', sans-serif;
+}
+
+h2, h3, h4 p {
+  color: #000000;
+  font-style: normal;
+  font-weight: 800;
+}
+
+
+h2 {
+  font-size: 40px;
+  line-height: 58px;
+  @media (max-width: 1199px) {
+    font-size: 28px;
+    line-height: 40px;
+  }
+}
+
+h3 {
+  font-size: 32px;
+  line-height: 40px;
+  @media (max-width: 1199px) {
+    font-size: 22px;
+    line-height: 26px;
+  }
+}
+
+h4 {
+  font-size: 26px;
+  line-height: 36px;
+  @media (max-width: 1199px) {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+
+p {
+  font-weight: 350;
+  font-size: 16px;
+  line-height: 24px;
+  @media (max-width: 1199px) {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.text-muted {
+  color: #9AA498;
+}
