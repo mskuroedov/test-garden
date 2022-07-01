@@ -130,7 +130,7 @@ p {
     .form-input .icon img {
       width: 100%; }
   .form-input:after {
-    content: url("assets/icons/tick--success.svg");
+    content: url("/assets/icons/tick--success.svg");
     position: absolute;
     height: 24px;
     top: 50%;
@@ -142,7 +142,7 @@ p {
   .form-input.error input {
     border-color: #FEAAAA; }
   .form-input.error:after {
-    content: url("assets/icons/error-cross.svg");
+    content: url("/assets/icons/error-cross.svg");
     opacity: 1; }
   .form-input.--success input, .form-input.--success textarea {
     border: 1px solid #ACCDA7; }
@@ -163,7 +163,7 @@ p {
     content: '';
     position: absolute;
     z-index: 1;
-    background: url("assets/decorators/white.svg"); }
+    background: url("/assets/decorators/white.svg"); }
   .garden-modal .modal-content:before {
     left: 0;
     top: 0;
@@ -2081,7 +2081,7 @@ section {
     content: '';
     position: absolute;
     z-index: 1;
-    background: url("assets/decorators/green-left.svg");
+    background: url("/assets/decorators/green-left.svg");
     left: 0;
     top: 0;
     width: 460px;
@@ -2091,7 +2091,7 @@ section {
     content: '';
     position: absolute;
     z-index: 1;
-    background: url("assets/decorators/green-right.svg");
+    background: url("/assets/decorators/green-right.svg");
     right: 0;
     bottom: 0;
     width: 482px;
@@ -2105,7 +2105,7 @@ section {
     content: '';
     position: absolute;
     z-index: 1;
-    background: url("assets/decorators/white.svg"); }
+    background: url("/assets/decorators/white.svg"); }
   .section-decorator-white:before {
     left: 0;
     top: 0;
