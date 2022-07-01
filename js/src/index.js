@@ -10,11 +10,12 @@ $('form').on('submit', function (e) {
 $('.modal .close').on('click', function (e) {
     e.preventDefault();
 })
-$('.modal form').on('submit', function (e) {
+$('form').on('submit', function (e) {
     e.preventDefault();
+    if ($(this).data('success')) {
+        let successModal = $(this).data('success')
 
-    let successModal = $(this).data('success')
-
-    $('.modal').modal('hide')
-    $(successModal).modal('show');
+        $('.modal').modal('hide')
+        $(successModal).modal('show');
+    }
 })
