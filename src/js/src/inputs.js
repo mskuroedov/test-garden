@@ -1,19 +1,17 @@
-//selects
 $(document).ready(function () {
+    alert(1)
     $('.select').select2({width: '100%'})
     $('.select').on('select2:close', function () {
         if (!!$(this).select2('data')[0].id) {
             $(this).next().addClass('valid')
         }
     })
-});
 
-//inputmask scripts
-$(document).ready(function () {
     $('[data-inputmask]').inputmask({
         jitMasking: false
     });
 
+    //input validations
     $('input[required]').on('focusout', function () {
         if ($(this).attr('data-inputmask')) {
 
