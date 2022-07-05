@@ -12,8 +12,8 @@ const {src, dest, parallel, series, watch} = require('gulp'),
     commonjs = require('rollup-plugin-commonjs'),
     imagemin = require('gulp-imagemin'),
     del = require('del'),
-    ghPages = require('gulp-gh-pages'),
-    destFolder = require('path').basename(__dirname);
+    ghpages = require('gh-pages')
+destFolder = require('path').basename(__dirname);
 
 function browsersync() {
     browserSync.init({
@@ -38,6 +38,11 @@ function html() {
     return src('src/**/*.html')
         .pipe(dest(`${destFolder}`))
         .pipe(browserSync.stream())
+}
+
+function fonts() {
+    return src('src/fonts')
+        .pipe(dest(`${destFolder}/fonts`))
 }
 
 function scripts() {
@@ -76,14 +81,18 @@ function images() {
 }
 
 function deploy() {
-    return src(`${destFolder}/**/*`).pipe(ghPages());
+    return ghpages.publish(destFolder, function (err) {
+        console.log(err)
+    });
 }
 
 exports.browsersync = browsersync;
 exports.html = html;
+exports.fonts = fonts;
 exports.scripts = scripts;
 exports.styles = styles;
 exports.images = images;
-exports.deploy = series(cleanDist, parallel(images,html, scripts, styles), deploy);
-exports.dev = series(cleanDist, parallel(images, html, scripts, styles), parallel(browsersync, startwatch));
-exports.default = series(cleanDist, parallel(html, styles, scripts, images));
+exports.deploy = deploy;
+// exports.deploy = series(cleanDist, parallel(fonts, images, scripts, styles, html), deploy);
+exports.dev = series(cleanDist, parallel(fonts, images, scripts, styles, html), parallel(browsersync, startwatch));
+exports.default = series(cleanDist, parallel(fonts, images, scripts, styles, html));
