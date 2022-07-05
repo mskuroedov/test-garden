@@ -12,6 +12,7 @@ const {src, dest, parallel, series, watch} = require('gulp'),
     commonjs = require('rollup-plugin-commonjs'),
     imagemin = require('gulp-imagemin'),
     del = require('del'),
+    ghPages = require('gulp-gh-pages'),
     destFolder = require('path').basename(__dirname);
 
 function browsersync() {
@@ -27,6 +28,10 @@ function startwatch() {
     watch('src/scss/**/*.scss', styles);
     watch('src/images/**/*', images);
     watch('src/**/*.html', html);
+}
+
+function cleanDist() {
+    return del(`${destFolder}`)
 }
 
 function html() {
@@ -70,8 +75,12 @@ function images() {
         .pipe(browserSync.stream())
 }
 
-function cleanDist() {
-    return del(`${destFolder}`)
+function build() {
+    return series(images, parallel(html, scripts, styles), parallel(browsersync, startwatch))
+}
+
+function deploy() {
+    return src(`${destFolder}/**/*`).pipe(ghPages());
 }
 
 exports.browsersync = browsersync;
@@ -79,5 +88,7 @@ exports.html = html;
 exports.scripts = scripts;
 exports.styles = styles;
 exports.images = images;
-exports.dev = series(images, parallel(html, scripts, styles), parallel(browsersync, startwatch));
+exports.build = build;
+exports.deploy = series(cleanDist, build, deploy);
+exports.dev = series(parallel(images, html, scripts, styles), parallel(browsersync, startwatch));
 exports.default = series(cleanDist, parallel(html, styles, scripts, images));
