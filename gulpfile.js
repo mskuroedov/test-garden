@@ -75,10 +75,6 @@ function images() {
         .pipe(browserSync.stream())
 }
 
-function build() {
-    return series(images, parallel(html, scripts, styles), parallel(browsersync, startwatch))
-}
-
 function deploy() {
     return src(`${destFolder}/**/*`).pipe(ghPages());
 }
@@ -88,7 +84,6 @@ exports.html = html;
 exports.scripts = scripts;
 exports.styles = styles;
 exports.images = images;
-exports.build = build;
-exports.deploy = series(cleanDist, build, deploy);
+exports.deploy = series(cleanDist, parallel(images,html, scripts, styles), deploy);
 exports.dev = series(cleanDist, parallel(images, html, scripts, styles), parallel(browsersync, startwatch));
 exports.default = series(cleanDist, parallel(html, styles, scripts, images));

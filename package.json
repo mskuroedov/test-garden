@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp",
     "dev": "gulp dev",
-    "deploy": "gulp deploy"
+    "gh-pages": "gulp deploy"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
