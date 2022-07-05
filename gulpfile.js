@@ -9,14 +9,30 @@ const {src, dest, parallel, series, watch} = require('gulp'),
     rollup = require('gulp-better-rollup'),
     babel = require('rollup-plugin-babel'),
     resolve = require('rollup-plugin-node-resolve'),
-    commonjs = require('rollup-plugin-commonjs');
+    commonjs = require('rollup-plugin-commonjs'),
+    imagemin = require('gulp-imagemin'),
+    del = require('del'),
+    destFolder = require('path').basename(__dirname);
 
 function browsersync() {
     browserSync.init({
-        server: {baseDir: 'app/'},
+        server: {baseDir: `${destFolder}/`},
         notify: false,
         online: true
     })
+}
+
+function startwatch() {
+    watch('src/js/**/*.js', scripts);
+    watch('src/scss/**/*.scss', styles);
+    watch('src/images/**/*', images);
+    watch('src/**/*.html', html);
+}
+
+function html() {
+    return src('src/**/*.html')
+        .pipe(dest(`${destFolder}`))
+        .pipe(browserSync.stream())
 }
 
 function scripts() {
@@ -24,7 +40,7 @@ function scripts() {
         .pipe(rollup({plugins: [babel(), resolve(), commonjs()]}, 'umd'))
         .pipe(concat('app.min.js'))
         .pipe(uglify())
-        .pipe(dest('app/js/'))
+        .pipe(dest(`${destFolder}/js/`))
         .pipe(browserSync.stream())
 }
 
@@ -38,28 +54,30 @@ function styles() {
         .pipe(rename({
             suffix: '.min'
         }))
-        .pipe(dest('app/css/'))
+        .pipe(dest(`${destFolder}/css/`))
         .pipe(browserSync.stream())
 }
 
-function startwatch() {
-    watch(['src/**/*.js', '!src/**/*.min.js'], scripts);
-    watch('src/scss/**/*.scss', styles);
-    watch('app/**/*.html').on('change', browserSync.reload);
-}
-
-function cleandist() {
-}
-
 function images() {
+    return src('src/images/**/*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            interlaced: true,
+            optimization: 3 // 0-7
+        }))
+        .pipe(dest(`${destFolder}/images/`))
+        .pipe(browserSync.stream())
 }
 
-function buildcopy() {
+function cleanDist() {
+    return del(`${destFolder}`)
 }
-
 
 exports.browsersync = browsersync;
+exports.html = html;
 exports.scripts = scripts;
 exports.styles = styles;
-exports.default = series(scripts, styles, parallel(browsersync, startwatch));
-exports.build = series(cleandist, styles, scripts, images, buildcopy);
+exports.images = images;
+exports.dev = series(images, parallel(html, scripts, styles), parallel(browsersync, startwatch));
+exports.default = series(cleanDist, parallel(html, styles, scripts, images));

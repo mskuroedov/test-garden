@@ -34,7 +34,7 @@ section {
     content: '';
     position: absolute;
     z-index: 1;
-    background: url("../assets/decorators/green-left.svg");
+    background: url("../images/decorators/green-left.svg");
     left: 0;
     top: 0;
     width: 460px;
@@ -46,7 +46,7 @@ section {
     content: '';
     position: absolute;
     z-index: 1;
-    background: url("../assets/decorators/green-right.svg");
+    background: url("../images/decorators/green-right.svg");
     right: 0;
     bottom: 0;
     width: 482px;
@@ -64,7 +64,7 @@ section {
     content: '';
     position: absolute;
     z-index: 1;
-    background: url("../assets/decorators/white.svg");
+    background: url("../images/decorators/white.svg");
   }
 
   &:before {
