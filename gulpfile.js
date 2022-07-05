@@ -90,5 +90,5 @@ exports.styles = styles;
 exports.images = images;
 exports.build = build;
 exports.deploy = series(cleanDist, build, deploy);
-exports.dev = series(parallel(images, html, scripts, styles), parallel(browsersync, startwatch));
+exports.dev = series(cleanDist, parallel(images, html, scripts, styles), parallel(browsersync, startwatch));
 exports.default = series(cleanDist, parallel(html, styles, scripts, images));
