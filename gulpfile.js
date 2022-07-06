@@ -12,8 +12,8 @@ const {src, dest, parallel, series, watch} = require('gulp'),
     commonjs = require('rollup-plugin-commonjs'),
     imagemin = require('gulp-imagemin'),
     del = require('del'),
-    ghpages = require('gh-pages')
-destFolder = require('path').basename(__dirname);
+    ghpages = require('gh-pages'),
+    destFolder = require('path').basename(__dirname);
 
 function browsersync() {
     browserSync.init({
